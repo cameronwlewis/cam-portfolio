@@ -30,11 +30,9 @@ $formatted = new NumberFormatter('en_US', NumberFormatter::PERCENT);
 
 $hashtag = $_POST['input_hashtag'];
 
-# Make sure pound character (#) is removed prior to sending it to Twitter API
-if (strpos($hashtag, '#') == true) {
-    //PERCENT SIGN FOUND
-    $hashtag = preg_replace('#', '', $hashtag);
-}
+# If present, make sure pound character (#) is removed prior to sending input to
+# the Twitter API
+$hashtag = str_replace('#', '', $hashtag);
 
 $query = '%23' . $hashtag;
 $last_hashtag_id = $storage->storeHashtag($hashtag);
