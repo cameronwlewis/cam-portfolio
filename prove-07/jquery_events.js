@@ -30,39 +30,37 @@ function loadingGIF(x) {
     loading.style.display = x;
 }
 
-// jQuery listening for 'submit' button click
-$(document).on("click", '#submit_hashtag', function (e) {
+$(document).on('submit', '#submit_hashtag', function(e){
     e.preventDefault();
+    var text = document.getElementById('validation').innerHTML;
+    if(text =="") {
+        loadingGIF('block');
 
-    loadingGIF('block');
+        var hashtag = $('#input_hashtag').val();
 
-    var hashtag = $('#input_hashtag').val();
+        // Use AJAX to send data via POST and obtain the results of 'echo' in PHP script
+        $.ajax({
 
+            type: "POST",
+            url: 'searchTweets.php',
+            data: {input_hashtag: hashtag},
 
-    // Use AJAX to send data via POST and obtain the results of 'echo' in PHP script
-    $.ajax({
-
-        type: "POST",
-        url: 'searchTweets.php',
-        data: {input_hashtag: hashtag},
-
-        success: function (response) {
-            console.log('it was clicked!');
-            //loading.innerHTML = '';
-            $('#result').html(response);
-            //$('#result')
-        },
-        error: function () {
-            alert('error. sorry pal');
-            console.log('there was an error, pal');
-        },
-        complete: function() {
-            // no matter the result, complete will fire, so it's a good place
-            // to do the non-conditional stuff, like hiding a loading image.
-
-            loadingGIF('none');
-        }
-    });
+            success: function (response) {
+                console.log('it was clicked!');
+                $('#result').html(response);
+            },
+            error: function () {
+                alert('error. sorry pal');
+                console.log('there was an error, pal');
+            },
+            complete: function () {
+                loadingGIF('none');
+            }
+        });
+    }
+    else{
+        alert('Please remove the invalid characters to submit.');
+    }
 });
 
 /*$(document).on("click", '#mySearches', function (e) {

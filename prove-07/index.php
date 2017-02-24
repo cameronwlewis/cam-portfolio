@@ -56,7 +56,7 @@ session_start();
 <script src="jquery_events.js"></script>
 <script src="menu_and_events.js"></script>
 <div id="main">
-<form style="display: block">
+<form id="submit_hashtag" style="display: block">
     <p>
         <label for="input_hashtag" id="main_heading"
                class="front_page">Analyze </br>Sentiment.</label>
@@ -67,9 +67,8 @@ session_start();
         <span id="validation"></span>
     </p>
 
-    <button id="submit_hashtag" style="color: black" class="front_page">Submit
-    </button>
-</form>
+    <input type="submit" style="color: black" class="front_page" >
+</form >
     <p class="explanation">
     <a id="what_is_this" href="#">What is this?</a>
     <p id="explain_text"></p>

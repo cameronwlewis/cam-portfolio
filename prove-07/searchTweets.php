@@ -79,7 +79,7 @@ echo 'Magnitude: ' . $formatted->format($magnitude_average);
 $storage->storeAvgSentiment($last_hashtag_id, $sentiment_average,
     $magnitude_average);
 
-echo '<p>Save your results! Make an account. </p>';
+//echo '<p>Save your results! Make an account. </p>';
 
 # Save results to session
 $index = $_SESSION['search_index'];
