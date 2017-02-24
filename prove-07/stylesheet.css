@@ -167,7 +167,7 @@ body.has-active-menu {
     font-weight: lighter;
 }
 
-#result, #loading, .explanation {
+#result, #loading {
     color: white;
     font-family: Helvetica Neue, serif;
     font-weight: lighter;
@@ -182,20 +182,18 @@ body.has-active-menu {
 }
 
 .explanation {
+    color: white;
+    font-family: Helvetica Neue, serif;
     font-weight: 300;
-    font-size: 100%;
-    padding: 1%;
-}
-
-#what_is_this {
-    transition: 0.1s;
-    text-decoration: none;
-}
-
-.explanation p {
+    text-align: center;
     margin-left: 35%;
     margin-right: 35%;
     line-height: 140%;
+}
+
+#what_is_this {
+    transition: 0.15s;
+    text-decoration: none;
 }
 
 #validation {

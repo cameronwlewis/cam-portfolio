@@ -70,9 +70,10 @@ session_start();
     <input type="submit" style="color: black" class="front_page" >
 </form >
     <p class="explanation">
-    <a id="what_is_this" href="#">What is this?</a>
-    <p id="explain_text"></p>
-    </p>
+    <a id="what_is_this" class="explanation" href="#">What is this?</a>
+        <br/>
+    <div id="explain_text" class="explanation">
+    </div>
 </div>
 <div >
 
