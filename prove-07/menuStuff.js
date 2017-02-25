@@ -37,7 +37,7 @@
      * Menu Options.
      */
     Menu.prototype.options = {
-        wrapper: '#o-wrapper',          // The content wrapper
+        wrapper: '#wrapper',          // The content wrapper
         type: 'slide-left',             // The menu type
         menuOpenerClass: '.button',   // The menu opener class names (i.e. the buttons)
         maskId: '#mask'               // The ID of the mask
