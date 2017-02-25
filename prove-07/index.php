@@ -5,54 +5,54 @@ session_start();
 <!DOCTYPE HTML>
 <head>
     <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-    <script type="text/javascript" src="menuStuff.js"></script>
+    <!--<script type="text/javascript" src="menuStuff.js"></script> -->
     <script src="jquery-3.1.1.min.js"></script>
 
 </head>
 <body>
-<div id="o-wrapper" class="o-wrapper">
+<div id="wrapper" class="wrapper">
 
-    <div class="c-buttons">
-        <input type="image" src="menu_icon.png" id="c-button--slide-left"
-               class="c-button">
+    <div class="buttons">
+        <input type="image" src="menu_icon.png" id="button--slide-left"
+               class="button">
     </div>
 
 </div><!-- /o-wrapper -->
 
 <!-- menus here -->
-<nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
-    <button class="c-menu__close">&larr; Close Menu</button>
-    <ol class="c-menu__items">
-        <li class="c-menu__item">
+<nav id="menu--slide-left" class="menu menu--slide-left">
+    <button class="menu__close">&larr; Close Menu</button>
+    <ol class="menu__items">
+        <li class="menu__item">
 
             <div>
                 <span style="padding-left: 8%">01</span>
                 <a id="mySearches" href="javascript:showHome()" onmouseover="mouseOver(this)"
-                   onmouseout="mouseOut(this)" href="index.php" class="c-menu__link">Home</a>
+                   onmouseout="mouseOut(this)" class="menu__link">Home</a>
             </div>
         </li>
-        <li class="c-menu__item">
+        <li class="menu__item">
 
             <div>
                 <span style="padding-left: 8%">02</span>
                 <a id="mySearches" href="javascript:showMySearches()" onmouseover="mouseOver(this)"
-                   onmouseout="mouseOut(this)" href="mySearches.php" class="c-menu__link">My
+                   onmouseout="mouseOut(this)" class="menu__link">My
                     Searches</a>
             </div>
         </li>
-        <li class="c-menu__item">
+        <li class="menu__item">
 
             <div>
                 <span style="padding-left: 8%">03</span>
                 <a id="statistics" onmouseover="mouseOver(this)"
                    onmouseout="mouseOut(this)"
-                   href="javascript:showStats()" class="c-menu__link">Statistics</a>
+                   href="javascript:showStats()" class="menu__link">Statistics</a>
             </div>
         </li>
     </ol>
-</nav><!-- /c-menu slide-left -->
+</nav><!-- /menu slide-left -->
 
-<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+<div id="mask" class="mask"></div><!-- /mask -->
 <script src="jquery_events.js"></script>
 <script src="menu_and_events.js"></script>
 <div id="main">

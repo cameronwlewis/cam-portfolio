@@ -39,8 +39,8 @@
     Menu.prototype.options = {
         wrapper: '#o-wrapper',          // The content wrapper
         type: 'slide-left',             // The menu type
-        menuOpenerClass: '.c-button',   // The menu opener class names (i.e. the buttons)
-        maskId: '#c-mask'               // The ID of the mask
+        menuOpenerClass: '.button',   // The menu opener class names (i.e. the buttons)
+        maskId: '#mask'               // The ID of the mask
     };
 
     /**
@@ -50,8 +50,8 @@
         this.body = document.body;
         this.wrapper = document.querySelector(this.options.wrapper);
         this.mask = document.querySelector(this.options.maskId);
-        this.menu = document.querySelector('#c-menu--' + this.options.type);
-        this.closeBtn = this.menu.querySelector('.c-menu__close');
+        this.menu = document.querySelector('#menu--' + this.options.type);
+        this.closeBtn = this.menu.querySelector('.menu__close');
         this.menuOpeners = document.querySelectorAll(this.options.menuOpenerClass);
         this._initEvents();
     };

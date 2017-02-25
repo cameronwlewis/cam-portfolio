@@ -1,6 +1,15 @@
 /**
  * Created by cameronlewis on 2/17/17.
  */
+function Menu(){
+    this.wrapper = '#wrapper';
+    this.menuOpener = '.button';
+    this.mask = '#mask';
+}
+
+
+
+
 function mouseOver(x) {
     x.style.color = "gray";
 }
@@ -10,13 +19,13 @@ function mouseOut(x) {
 }
 
 var slideLeft = new Menu({
-    wrapper: '#o-wrapper',
+    wrapper: '#wrapper',
     type: 'slide-left',
-    menuOpenerClass: '.c-button',
-    maskId: '#c-mask'
+    menuOpenerClass: '.button',
+    maskId: '#mask'
 });
 
-var slideLeftBtn = document.querySelector('#c-button--slide-left');
+var slideLeftBtn = document.querySelector('#button--slide-left');
 
 slideLeftBtn.addEventListener('click', function (e) {
     e.preventDefault();
@@ -24,6 +33,11 @@ slideLeftBtn.addEventListener('click', function (e) {
 });
 
 function showHome() {
+    this.body.classList.remove('has-active-menu');
+    this.wrapper.classList.remove('has-' + this.options.type);
+    this.menu.classList.remove('is-active');
+    this.mask.classList.remove('is-active');
+    this.enableMenuOpeners();
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -37,8 +51,11 @@ function showHome() {
 }
 
 function showStats() {
+    var closeMenu = document.querySelector('.menu__close');
+    closeMenu.close();
 
-        var xmlhttp = new XMLHttpRequest();
+
+    var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("main").style.display = 'none';
@@ -68,3 +85,12 @@ function validateInput(input) {
     else
         document.getElementById('validation').innerHTML = "";
 }
+
+
+
+/*$('.menu__item').on('click', function(){
+    $("#menu--slide-left").hide();
+    $("#mask").hide();
+    //$("#menu-icon").removeClass("active");
+});*/
+

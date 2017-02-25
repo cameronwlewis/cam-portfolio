@@ -62,33 +62,3 @@ $(document).on('submit', '#submit_hashtag', function(e){
         alert('Please remove the invalid characters to submit.');
     }
 });
-
-/*$(document).on("click", '#mySearches', function (e) {
-    e.preventDefault();
-
-    loadingGIF('block');
-
-    // Use AJAX to send data via POST and obtain the results of 'echo' in PHP script
-    $.ajax({
-
-        url: 'mySearches.php',
-
-        success: function (response) {
-            console.log('it was clicked!');
-            //loading.innerHTML = '';
-            $('#result').html(response);
-            //$('#result')
-        },
-        error: function () {
-            alert('error. sorry pal');
-            console.log('there was an error, pal');
-        },
-        complete: function() {
-            // no matter the result, complete will fire, so it's a good place
-            // to do the non-conditional stuff, like hiding a loading image.
-
-            loadingGIF('none');
-        }
-    });
-});
-*/

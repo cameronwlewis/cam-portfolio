@@ -26,6 +26,3 @@ else {
 
 //TODO: fix menu not snapping back after clicking menu item
 //TODO: perhaps add greater explanation to what sentiment and magnitude are
-
-//TODO: make sure character validation doesn't submit unless errors are fixed
-   // could pop up alert "hey change it so you can submit"
