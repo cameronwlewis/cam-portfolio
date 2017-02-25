@@ -67,7 +67,13 @@ $(document).on('mouseenter', '#what_is_this', function(e){
         'linked together have been fed millions of pages of text to teach ' +
         'them what humans really mean when they say something. ' +
         'It\'s called machine learning, the same technology used by Siri ' +
-        'and Google Assistant to make sense of the things humans tell them.';
+        'and Google Assistant to make sense of the things humans tell them.' +
+        '<p>Sentiment measures how positive or negative the tweets' +
+        ' associated with the hashtag are, with a scale of -100% to' +
+        ' positive 100%.</p>' +
+        '<p>Magnitude is a measure of emotion, and scales up to 100%' +
+        ' depending on how \'emotional\' these tweets are deemed to' +
+        ' be.</p>';
 
 }).on('mouseleave','#what_is_this',  function(){
     var remove_explain = document.getElementById('explain_text');
