@@ -1,6 +1,57 @@
 /**
  * Created by cameronlewis on 2/17/17.
  */
+
+function showHome() {
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("main").style.display = 'block';
+            document.getElementById("result").innerHTML = '';
+        }
+    };
+    xmlhttp.open("GET", "index.php", true);
+    xmlhttp.send();
+}
+
+function showStats() {
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("main").style.display = 'none';
+            document.getElementById("result").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "showStats.php", true);
+    xmlhttp.send();
+}
+function showMySearches() {
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("main").style.display = 'none';
+            document.getElementById("result").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "mySearches.php", true);
+    xmlhttp.send();
+}
+function validateInput(input) {
+    if (/[&;%@!"?\- ^~:}\{()+$<>_*]/.test(input) == true)
+        document.getElementById('validation').innerHTML = "Invalid characters" +
+            " entered.";
+    else
+        document.getElementById('validation').innerHTML = "";
+}
+
+function loadingGIF(x) {
+    var loading = document.getElementById('loading');
+    loading.style.display = x;
+}
+
 // jQuery event listener. Gives answer to "What is this?" on hover.
 $(document).on('mouseenter', '#what_is_this', function(e){
     e.preventDefault();
@@ -25,10 +76,6 @@ $(document).on('mouseenter', '#what_is_this', function(e){
     remove_explain.innerHTML = '';
 });
 
-function loadingGIF(x) {
-    var loading = document.getElementById('loading');
-    loading.style.display = x;
-}
 
 $(document).on('submit', '#submit_hashtag', function(e){
     e.preventDefault();

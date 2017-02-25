@@ -5,8 +5,9 @@ session_start();
 <!DOCTYPE HTML>
 <head>
     <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-    <!--<script type="text/javascript" src="menuStuff.js"></script> -->
     <script src="jquery-3.1.1.min.js"></script>
+
+
 
 </head>
 <body>
@@ -28,7 +29,7 @@ session_start();
             <div>
                 <span style="padding-left: 8%">01</span>
                 <a id="mySearches" href="javascript:showHome()" onmouseover="mouseOver(this)"
-                   onmouseout="mouseOut(this)" class="menu__link">Home</a>
+                   onmouseout="mouseOut(this)" href="index.php" class="menu__link">Home</a>
             </div>
         </li>
         <li class="menu__item">
@@ -36,7 +37,7 @@ session_start();
             <div>
                 <span style="padding-left: 8%">02</span>
                 <a id="mySearches" href="javascript:showMySearches()" onmouseover="mouseOver(this)"
-                   onmouseout="mouseOut(this)" class="menu__link">My
+                   onmouseout="mouseOut(this)" href="mySearches.php" class="menu__link">My
                     Searches</a>
             </div>
         </li>
@@ -53,24 +54,24 @@ session_start();
 </nav><!-- /menu slide-left -->
 
 <div id="mask" class="mask"></div><!-- /mask -->
-<script src="jquery_events.js"></script>
-<script src="menu_and_events.js"></script>
+<script src="events.js"></script>
+<script src="menu.js"></script>
 <div id="main">
-<form id="submit_hashtag" style="display: block">
-    <p>
-        <label for="input_hashtag" id="main_heading"
-               class="front_page">Analyze </br>Sentiment.</label>
-    <p>
-        <input type="text" id="input_hashtag" class="front_page"
-               placeholder="just feed me a #hashtag" oninput="validateInput(this.value)" name="input_hashtag">
-    </p>
+    <form id="submit_hashtag" style="display: block">
+        <p>
+            <label for="input_hashtag" id="main_heading"
+                   class="front_page">Analyze </br>Sentiment.</label>
+        <p>
+            <input type="text" id="input_hashtag" class="front_page"
+                   placeholder="just feed me a #hashtag" oninput="validateInput(this.value)" name="input_hashtag">
+        </p>
         <span id="validation"></span>
-    </p>
+        </p>
 
-    <input type="submit" style="color: black" class="front_page" >
-</form >
+        <input type="submit" style="color: black" class="front_page" >
+    </form >
     <p class="explanation">
-    <a id="what_is_this" class="explanation" href="#">What is this?</a>
+        <a id="what_is_this" class="explanation" href="#">What is this?</a>
         <br/>
     <div id="explain_text" class="explanation">
     </div>
@@ -80,7 +81,7 @@ session_start();
 </div>
 <div
         id="loading" style="display: none;"><img src="loading_spinner.gif"
-                          style=" width: 5%"></div>
+                                                 style=" width: 5%"></div>
 <div id="result">
 
 </div>

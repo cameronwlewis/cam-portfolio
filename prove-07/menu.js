@@ -1,3 +1,20 @@
+function mouseOver(x) {
+    x.style.color = "gray";
+}
+
+function mouseOut(x) {
+    x.style.color = "black";
+}
+
+
+
+var slideLeftBtn = document.querySelector('#button--slide-left');
+
+slideLeftBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    slideLeft.open();
+});
+
 (function(window) {
 
     'use strict';
@@ -120,3 +137,9 @@
 
 })(window);
 
+var slideLeft = new Menu({
+    wrapper: '#wrapper',
+    type: 'slide-left',
+    menuOpenerClass: '.button',
+    maskId: '#mask'
+});
