@@ -17,7 +17,7 @@ session_start();
                class="button">
     </div>
 
-</div><!-- /o-wrapper -->
+</div><!-- /wrapper -->
 
 <!-- menus here -->
 <nav id="menu--slide-left" class="menu menu--slide-left">
