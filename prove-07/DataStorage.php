@@ -16,9 +16,17 @@ class DataStorage
             $connection->connectHeroku();
     }
     function storeAccount($username, $password){
-        pg_query_params($this->heroku_postgres, 'INSERT INTO users (_user, _password) 
-        VALUES ($1, $2)', array($username, $password));
+        $user_id = pg_query_params($this->heroku_postgres, 'INSERT INTO users (_user, _password) 
+        VALUES ($1, $2)RETURNING id', array($username, $password));
+        return $user_id;
     }
+
+    function attachToAccount($user_id, $hashtag_id){
+        $user_id = pg_query_params($this->heroku_postgres, 'INSERT INTO savedsearches (user_id, hashtag_id)
+        VALUES ($1, $2) RETURNING user_id', array($user_id, $hashtag_id));
+
+    }
+
     function storeHashtag($hashtag)
     {
         # store hashtag in table

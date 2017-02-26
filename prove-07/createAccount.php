@@ -1,16 +1,17 @@
 <?php
-require('Connection.php');
-require('DataStorage.php');
+session_start();
+if ($_SESSION['logged_in1']) {
+    echo 'You\'re already logged in!';
+}
+else {
 
-$connection = new Connection();
-$storage = new DataStorage($connection);
+    echo '<div class="account">Create an account.';
+    echo '<form id="account_creation">';
+    echo '<p>Username: <input type="text" id="create_username"></p>';
+    echo '<p>Password: <input type="text" id="create_password"></p>';
+    echo '<p><input type="submit"> </p>';
+    echo '</form></div>';
 
-$create_username = $_POST['create_username'];
-$create_password = $_POST['create_password'];
-
-$storage->storeAccount($create_username, $create_password);
-
-echo '<p style="color:white;">Account created!</p>';
-
-
-
+    $_SESSION['logged_in1'] = true;
+    $_SESSION['create_or_login'] = 'create';
+}

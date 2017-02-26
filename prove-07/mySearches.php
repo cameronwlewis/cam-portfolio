@@ -23,6 +23,3 @@ if (isset($_SESSION['search_index'])) {
 else {
     echo 'You haven\'t searched anything yet!';
 }
-
-//TODO: fix menu not snapping back after clicking menu item
-//TODO: perhaps add greater explanation to what sentiment and magnitude are

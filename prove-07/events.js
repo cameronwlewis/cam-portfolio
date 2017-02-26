@@ -141,7 +141,7 @@ $(document).on('submit', '#account_creation', function(e){
         $.ajax({
 
             type: "POST",
-            url: 'createAccount.php',
+            url: 'proccessLogin.php',
             data: {create_username: username, create_password: password},
 
             success: function (response) {
