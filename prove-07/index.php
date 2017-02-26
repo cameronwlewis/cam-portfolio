@@ -61,6 +61,16 @@ session_start();
                    class="menu__link">Statistics</a>
             </div>
         </li>
+        <li class="menu__item">
+
+            <div>
+                <span style="padding-left: 8%">04</span>
+                <a id="statistics" onmouseover="mouseOver(this)"
+                   onmouseout="mouseOut(this)"
+                   href="javascript:showLogout()"
+                   class="menu__link">Log Out</a>
+            </div>
+        </li>
 
     </ol>
 </nav>

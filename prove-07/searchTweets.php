@@ -77,14 +77,14 @@ echo 'Magnitude: ' . $formatted->format($magnitude_average);
 $storage->storeAvgSentiment($last_hashtag_id, $sentiment_average,
     $magnitude_average);
 
-if (!$_SESSION['logged_in1']){
+if (!$_SESSION['user_loggedIn']){
     echo '<p>Save your results! Click 
         <a id="login_link" href="javascript:showAccountCreation()">here</a> 
             to make an account.</p><p>Already have an account? Log in 
           <a id="login_link" href="javascript:showLogin()">here.</a></p>';
 }
 else {
-    //$storage->attachToAccount()
+    $storage->attachToAccount($_SESSION['returningUser_id'], $last_hashtag_id);
 }
 
 # Save results to session
