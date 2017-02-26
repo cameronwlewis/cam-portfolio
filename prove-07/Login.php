@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['user_loggedIn']) {
+if ($_SESSION['user_loggedIn'] == true) {
     echo 'You\'re already logged in!';
 }
 else {

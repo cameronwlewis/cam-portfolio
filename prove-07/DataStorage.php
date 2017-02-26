@@ -23,7 +23,7 @@ class DataStorage
 
     function attachToAccount($user_id, $hashtag_id){
         $user_id = pg_query_params($this->heroku_postgres, 'INSERT INTO savedsearches (user_id, hashtag_id)
-        VALUES ($1, $2) RETURNING user_id', array($user_id, $hashtag_id));
+        VALUES ($1, $2)', array($user_id, $hashtag_id));
 
     }
 
