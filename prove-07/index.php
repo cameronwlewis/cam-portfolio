@@ -33,6 +33,16 @@ session_start();
         <li class="menu__item">
 
             <div>
+                <span style="padding-left: 8%">03</span>
+                <a id="statistics" onmouseover="mouseOver(this)"
+                   onmouseout="mouseOut(this)"
+                   href="javascript:showLogin()"
+                   class="menu__link">Login</a>
+            </div>
+        </li>
+        <li class="menu__item">
+
+            <div>
                 <span style="padding-left: 8%">02</span>
                 <a id="mySearches" href="javascript:showMySearches()"
                    onmouseover="mouseOver(this)"
@@ -51,6 +61,7 @@ session_start();
                    class="menu__link">Statistics</a>
             </div>
         </li>
+
     </ol>
 </nav>
 
@@ -83,8 +94,7 @@ session_start();
 <div id="loading" style="display: none;"><img src="loading_spinner.gif"
                                                  style=" width: 5%">
 </div>
-<div id="result">
-
-</div>
+<div id="result"></div>
+<div id="account"></div>
 
 </body>

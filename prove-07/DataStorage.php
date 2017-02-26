@@ -15,7 +15,10 @@ class DataStorage
         $this->heroku_postgres = $this->heroku_postgres =
             $connection->connectHeroku();
     }
-
+    function storeAccount($username, $password){
+        pg_query_params($this->heroku_postgres, 'INSERT INTO users (_user, _password) 
+        VALUES ($1, $2)', array($username, $password));
+    }
     function storeHashtag($hashtag)
     {
         # store hashtag in table

@@ -15,6 +15,19 @@ function showHome() {
     xmlhttp.send();
 }
 
+function showLogin() {
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("main").style.display = 'none';
+            document.getElementById("result").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "Login.php", true);
+    xmlhttp.send();
+}
+
 function showStats() {
 
     var xmlhttp = new XMLHttpRequest();
@@ -27,6 +40,7 @@ function showStats() {
     xmlhttp.open("GET", "showStats.php", true);
     xmlhttp.send();
 }
+
 function showMySearches() {
 
     var xmlhttp = new XMLHttpRequest();
@@ -114,4 +128,32 @@ $(document).on('submit', '#submit_hashtag', function(e){
     else{
         alert('Please remove the invalid characters to submit.');
     }
+});
+
+$(document).on('submit', '#account_creation', function(e){
+    e.preventDefault();
+        loadingGIF('block');
+
+        var username = $('#create_username').val();
+        var password = $('#create_password').val();
+
+        // Use AJAX to send data via POST and obtain the results of 'echo' in PHP script
+        $.ajax({
+
+            type: "POST",
+            url: 'createAccount.php',
+            data: {create_username: username, create_password: password},
+
+            success: function (response) {
+                console.log('it was clicked!');
+                $('#result').html(response);
+            },
+            error: function () {
+                alert('error. Sorry pal!');
+                console.log('there was an error, pal');
+            },
+            complete: function () {
+                loadingGIF('none');
+            }
+        });
 });
