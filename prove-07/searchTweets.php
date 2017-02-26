@@ -76,8 +76,7 @@ echo 'Magnitude: ' . $formatted->format($magnitude_average);
 # Store the averages
 $storage->storeAvgSentiment($last_hashtag_id, $sentiment_average,
     $magnitude_average);
-//$_SESSION['user_loggedIn']= true; //TODO: remove this when done debugging
-//$_SESSION['returningUser_id'] = 9;
+
 if (!$_SESSION['user_loggedIn']){
     echo '<p>Save your results! Click 
         <a id="login_link" href="javascript:showAccountCreation()">here</a> 
@@ -89,15 +88,4 @@ else {
 }
 
 # Save results to session
-//$index = $_SESSION['search_index'];
-
-//$saved_searches[$index] = $hashtag;
 $_SESSION['saved_search'] = $last_hashtag_id;
-
-/*$saved_sentiment[$index] = $sentiment_average;
-$_SESSION['saved_sentiment'][$index] = $saved_sentiment[$index];
-
-$saved_magnitude[$index] = $magnitude_average;
-$_SESSION['saved_magnitude'][$index] = $saved_magnitude[$index];*/
-
-

@@ -14,6 +14,6 @@ else {
     echo '<div>Don\'t have an account? 
         Create one <a href="javascript:showAccountCreation()">
         here</a>';
-
+//TODO: find way to redirect after login
     $_SESSION['create_or_login'] = 'login';
 }

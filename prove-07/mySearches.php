@@ -1,5 +1,6 @@
 <?php
 session_start();
+//TODO: this all will need to be deleted. Will need to select from database
 if (isset($_SESSION['search_index'])) {
 
     $formatted = new NumberFormatter('en_US', NumberFormatter::PERCENT);
@@ -8,7 +9,7 @@ if (isset($_SESSION['search_index'])) {
     $tags = $_SESSION['saved_searches'];
 
     //var_dump($debug, $tags, $sentiment, $magnitude);
-
+K
     foreach($tags as $index => $tag){
         echo '<p>';
         echo '#'.$tag.'<br/>';

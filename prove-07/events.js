@@ -1,7 +1,7 @@
 /**
  * Created by cameronlewis on 2/17/17.
  */
-
+// TODO: make a central AJAX function for all these functions below to reference
 function showHome() {
 
     var xmlhttp = new XMLHttpRequest();
@@ -90,6 +90,8 @@ function loadingGIF(x) {
     var loading = document.getElementById('loading');
     loading.style.display = x;
 }
+// TODO: make a central jQuery function for all these functions below to
+// reference
 
 // jQuery event listener. Gives answer to "What is this?" on hover.
 $(document).on('mouseenter', '#what_is_this', function(e){

@@ -26,9 +26,7 @@ if ($_SESSION['create_or_login'] == 'create') {
     echo '<p>Account created!</p>';
 }
 // attach login to hashtags here
-//$_SESSION['create_or_login'] = 'login'; //TODO remove this when done debugging
 if ($_SESSION['create_or_login'] == 'login') {
-    //$returningUser_name = 'flintstones';
     $returningUser_name = $_POST['username'];
     $returningUser_pass = $_POST['password'];
 

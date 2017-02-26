@@ -3,6 +3,8 @@ session_start();
 if ($_SESSION['user_loggedIn'] == true) {
     echo 'You\'re already logged in!';
 }
+//TODO: find way to redirect after account creation
+
 else {
 
     echo '<div class="account">Create an account.';
