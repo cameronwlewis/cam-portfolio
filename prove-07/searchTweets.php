@@ -82,9 +82,9 @@ if (!$_SESSION['user_loggedIn']){
     $_SESSION['saved_search'] = $last_hashtag_id;
 
     echo '<p>Save your results! Click 
-        <a id="login_link" href="javascript:showAccountCreation()">here</a> 
+        <a class="login_link" href="javascript:showAccountCreation()">here</a> 
             to make an account.</p><p>Already have an account? Log in 
-          <a id="login_link" href="javascript:showLogin()">here.</a></p>';
+          <a class="login_link" href="javascript:showLogin()">here</a>.</p>';
 }
 else {
     $storage->attachToAccount($_SESSION['returningUser_id'], $last_hashtag_id);
