@@ -1,26 +1,34 @@
 <?php
 session_start();
-//TODO: this all will need to be deleted. Will need to select from database
-if (isset($_SESSION['search_index'])) {
+if ($_SESSION['user_loggedIn'] == true) {
+    require ('Connection.php');
+    require ('DataStorage.php');
+
+    $connection = new Connection();
+    $storage = new DataStorage($connection);
+    $connection = $connection->connectHeroku();
 
     $formatted = new NumberFormatter('en_US', NumberFormatter::PERCENT);
 
-    $debug = $_SESSION['search_index'] ;
-    $tags = $_SESSION['saved_searches'];
+    // get selection from database here:
+    $saved_searches = pg_query($connection, "SELECT avg_sentiment, avg_magnitude, hashtag 
+      FROM savedsearches, averages INNER JOIN hashtag 
+      ON averages.hashtag_id = hashtag.id 
+      WHERE savedsearches.hashtag_id = hashtag.id");
 
-    //var_dump($debug, $tags, $sentiment, $magnitude);
-K
-    foreach($tags as $index => $tag){
+    //$searches = pg_fetch_assoc($saved_searches);
+
+    while($search = pg_fetch_assoc($saved_searches)){
         echo '<p>';
-        echo '#'.$tag.'<br/>';
-        echo 'Sentiment: '.$formatted->format
-            ($_SESSION['saved_sentiment'][$index])
-        .'<br/>';
-        echo 'Magnitude: '.$formatted->format
-            ($_SESSION['saved_magnitude'][$index]);
+        echo '#'.$search['hashtag'].'<br/>';
+        echo 'Sentiment: '.$formatted->format($search['avg_magnitude']).'<br/>';
+        echo 'Magnitude: '.$formatted->format($search['avg_magnitude']);
         echo '</p>';
     }
 }
 else {
-    echo 'You haven\'t searched anything yet!';
+    echo '<p>Log in to see your results. Click 
+        <a id="login_link" href="javascript:showAccountCreation()">here</a> 
+            to make an account.</p><p>Already have an account? Log in 
+          <a id="login_link" href="javascript:showLogin()">here.</a></p>';
 }
