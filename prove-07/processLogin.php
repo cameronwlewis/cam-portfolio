@@ -22,7 +22,6 @@ if ($_SESSION['create_or_login'] == 'create') {
         $storage->attachToAccount($newUser['id'],
             $_SESSION['saved_search']);
     }
-    header( "refresh:3;url=index.php" );
     echo '<p>Account created!</p>';
 }
 // attach hashtags to login here
@@ -57,7 +56,6 @@ if ($_SESSION['create_or_login'] == 'login') {
                 $storage->attachToAccount($_SESSION['returningUser_id'],
                     $_SESSION['saved_search']);
         }
-        header( "refresh:3;url=index.php" );
     }
 }
 

@@ -2,7 +2,6 @@
  * Created by cameronlewis on 2/17/17.
  */
 function showHome() {
-
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -20,6 +19,9 @@ function requestPage($page){
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById('main').style.display = 'none';
             document.getElementById('result').innerHTML = this.responseText;
+            if($page == 'logout.php'){
+                setTimeout(showHome, 2200);
+            }
         }
     };
     xmlhttp.open("GET", $page, true);
@@ -58,8 +60,6 @@ function loadingGIF(x) {
     var loading = document.getElementById('loading');
     loading.style.display = x;
 }
-// TODO: make a central jQuery function for all these functions below to
-// reference
 
 // jQuery event listener. Gives answer to "What is this?" on hover.
 $(document).on('mouseenter', '#what_is_this', function(e){
@@ -90,7 +90,6 @@ $(document).on('mouseenter', '#what_is_this', function(e){
     what_is_this.style.color = "white";
     remove_explain.innerHTML = '';
 });
-
 
 $(document).on('submit', '#submit_hashtag', function(e){
     e.preventDefault();
