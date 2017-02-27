@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+//TODO: fix the flipping menu. Gosh dangit that thing!
 <!DOCTYPE HTML>
 <head>
     <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
@@ -23,7 +24,7 @@ session_start();
         <li class="menu__item">
 
             <div>
-                <span style="padding-left: 8%">01</span>
+                <span style="padding-left: 8%">+</span>
                 <a id="showHome" href="javascript:showHome()"
                    onmouseover="mouseOver(this)"
                    onmouseout="mouseOut(this)" href="index.php"
@@ -33,7 +34,7 @@ session_start();
         <li class="menu__item">
 
             <div>
-                <span style="padding-left: 8%">03</span>
+                <span style="padding-left: 8%">+</span>
                 <a id="statistics" onmouseover="mouseOver(this)"
                    onmouseout="mouseOut(this)"
                    href="javascript:showLogin()"
@@ -43,7 +44,7 @@ session_start();
         <li class="menu__item">
 
             <div>
-                <span style="padding-left: 8%">02</span>
+                <span style="padding-left: 8%">+</span>
                 <a id="mySearches" href="javascript:showMySearches()"
                    onmouseover="mouseOver(this)"
                    onmouseout="mouseOut(this)" href="mySearches.php"
@@ -53,7 +54,7 @@ session_start();
         </li>
         <li class="menu__item">
             <div>
-                <span style="padding-left: 8%">03</span>
+                <span style="padding-left: 8%">+</span>
                 <a id="showStats" onmouseover="mouseOver(this)"
                    onmouseout="mouseOut(this)"
                    href="javascript:showStats()"
@@ -62,7 +63,7 @@ session_start();
         </li>
         <li class="menu__item">
             <div>
-                <span style="padding-left: 8%">04</span>
+                <span style="padding-left: 8%">+</span>
                 <a id="showLogout" onmouseover="mouseOver(this)"
                    onmouseout="mouseOut(this)"
                    href="javascript:showLogout()"

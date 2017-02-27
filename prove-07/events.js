@@ -82,7 +82,7 @@ $(document).on('mouseenter', '#what_is_this', function (e) {
         '<p>Sentiment measures how positive or negative the tweets' +
         ' associated with the hashtag are, with a scale of -100% to' +
         ' positive 100%.</p>' +
-        '<p>Magnitude is a measure of emotion, and scales up to 100%' +
+        '<p>Magnitude is a measure of emotion, and scales up' +
         ' depending on how \'emotional\' these tweets are deemed to' +
         ' be.</p>';
 

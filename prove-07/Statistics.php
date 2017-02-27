@@ -75,6 +75,7 @@ class Statistics
                 $numOfNeg = count($negative_by_hashtag[$hashtag]);
             else
                 $numOfNeg = 0;
+
             if (isset($positive_by_hashtag[$hashtag]))
                 $numOfPos = count($positive_by_hashtag[$hashtag]);
             else

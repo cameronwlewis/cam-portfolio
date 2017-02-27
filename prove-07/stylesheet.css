@@ -82,11 +82,9 @@ body.has-active-menu {
 }
 
 .menu--slide-left .menu__link {
-    /*display: block;*/
     color: black;
     text-align: left;
-    padding-left: 10%;
-    vertical-align: 25%;
+    padding-left: 5%;
     font-family: "Helvetica Neue", serif;
     font-size: 130%;
     font-weight: bold;
@@ -95,8 +93,6 @@ body.has-active-menu {
 }
 
 .menu--slide-left .menu__close {
-    /*display: block;
-    padding: 12px 24px;*/
     width: 100%;
 }
 
@@ -198,6 +194,12 @@ body.has-active-menu {
     font-size: 0.5em;
     font-style: italic;
     color: red;
+    font-weight: 200;
+}
+.login_limitations {
+    font-size: 0.5em;
+    font-style: italic;
+    color: white;
     font-weight: 200;
 }
 a:visited { text-decoration: none; color:white; }
