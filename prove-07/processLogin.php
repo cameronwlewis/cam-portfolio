@@ -25,6 +25,7 @@ if ($_SESSION['create_or_login'] == 'create') {
     echo '<p>Account created!</p>';
 }
 // attach hashtags to login here
+$_SESSION['create_or_login'] = 'login';
 if ($_SESSION['create_or_login'] == 'login') {
    $returningUser_name = $_POST['username'];
     $returningUser_pass = $_POST['password'];
@@ -37,20 +38,16 @@ if ($_SESSION['create_or_login'] == 'login') {
 
 
     if ($result_username == false){
-        echo '<p>Username not found! Click
-        <a id="login_link" href="javascript:showAccountCreation()">here</a> 
-            to make an account.';
+        echo 'Username not found!';
     }
-    else if (is_null($returningUser_pass)){
-        echo '<p>Incorrect password. Please try again.';
+    else if ($result_password == false){
+        echo 'Incorrect password.';
     }
     else if ($result_username['id'] == $result_password['id']) {
-
+        echo 'Login successful.';
         $_SESSION['create_or_login'] = null;
         $_SESSION['user_loggedIn'] = true;
         $_SESSION['returningUser_id'] = $result_username['id'];
-        echo '<p>You\'ve logged in successfully.</p>
-        <p><a href="javascript:showHome()">Return to Search</a></p>';
 
         if (isset($_SESSION['saved_search'])) {
                 $storage->attachToAccount($_SESSION['returningUser_id'],

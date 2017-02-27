@@ -24,7 +24,7 @@ session_start();
 
             <div>
                 <span style="padding-left: 8%">01</span>
-                <a id="mySearches" href="javascript:showHome()"
+                <a id="showHome" href="javascript:showHome()"
                    onmouseover="mouseOver(this)"
                    onmouseout="mouseOut(this)" href="index.php"
                    class="menu__link">Search</a>
@@ -52,20 +52,18 @@ session_start();
             </div>
         </li>
         <li class="menu__item">
-
             <div>
                 <span style="padding-left: 8%">03</span>
-                <a id="statistics" onmouseover="mouseOver(this)"
+                <a id="showStats" onmouseover="mouseOver(this)"
                    onmouseout="mouseOut(this)"
                    href="javascript:showStats()"
                    class="menu__link">Statistics</a>
             </div>
         </li>
         <li class="menu__item">
-
             <div>
                 <span style="padding-left: 8%">04</span>
-                <a id="statistics" onmouseover="mouseOver(this)"
+                <a id="showLogout" onmouseover="mouseOver(this)"
                    onmouseout="mouseOut(this)"
                    href="javascript:showLogout()"
                    class="menu__link">Log Out</a>
@@ -105,6 +103,6 @@ session_start();
                                                  style=" width: 5%">
 </div>
 <div id="result"></div>
-<div id="account"></div>
+<div id="notify"></div>
 
 </body>

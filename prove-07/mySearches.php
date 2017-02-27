@@ -1,3 +1,4 @@
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 <?php
 session_start();
 if ($_SESSION['user_loggedIn'] == true) {
@@ -21,7 +22,7 @@ if ($_SESSION['user_loggedIn'] == true) {
     while($search = pg_fetch_assoc($saved_searches)){
         echo '<p>';
         echo '#'.$search['hashtag'].'<br/>';
-        echo 'Sentiment: '.$formatted->format($search['avg_magnitude']).'<br/>';
+        echo 'Sentiment: '.$formatted->format($search['avg_sentiment']).'<br/>';
         echo 'Magnitude: '.$formatted->format($search['avg_magnitude']);
         echo '</p>';
     }

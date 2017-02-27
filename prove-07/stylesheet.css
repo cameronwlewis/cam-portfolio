@@ -1,4 +1,3 @@
-/* TODO: make login related links NOT blue...*/
 body {
     background-color: #111111;
 }
@@ -185,7 +184,24 @@ body.has-active-menu {
     display: block;
 }
 
+.login_link {
+    text-decoration: underline;
+    color: white;
+    font-style: italic;
+}
+.login_link:hover {
+    text-decoration: underline;
+    color: gray;
+    font-style: italic;
+}
+.notify {
+    font-size: 0.5em;
+    font-style: italic;
+    color: red;
+    font-weight: 200;
+}
 a:visited { text-decoration: none; color:white; }
 a:hover { text-decoration: none; color:gray; }
 a:focus { text-decoration: none; color:white}
 a:hover, a:active { text-decoration: none; color:white }
+
