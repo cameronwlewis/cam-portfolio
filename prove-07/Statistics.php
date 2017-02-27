@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by IntelliJ IDEA.
  * User: cameronlewis
@@ -50,13 +51,14 @@ class Statistics
             $sentiment_by_hashtag[$row{'hashtag'}][] = $row['sentiment'];
         }
 
+
         $negative_by_hashtag = [];
         $positive_by_hashtag = [];
 
         /* Now sort tweets by positive or negative sentiment, stored by
          hashtag */
         foreach ($sentiment_by_hashtag as $hashtag => $tweet) {
-            foreach ($tweet as $tweet => $sentiment) {
+            foreach ($tweet as $t => $sentiment) {
                 if ($sentiment < 0) {
                     $negative_by_hashtag[$hashtag][] = $sentiment;
                 } else if ($sentiment > 0) {
@@ -69,27 +71,32 @@ class Statistics
 
         # Determine the most controversial hashtag
         foreach ($sentiment_by_hashtag as $hashtag => $index) {
-            $numOfNeg = count($negative_by_hashtag[$hashtag]);
-            $numOfPos = count($positive_by_hashtag[$hashtag]);
+            if (isset($negative_by_hashtag[$hashtag]))
+                $numOfNeg = 0;
+            else
+                $numOfNeg = count($negative_by_hashtag[$hashtag]);
+
+            if (isset($positive_by_hashtag[$hashtag]))
+                $numOfPos = 0;
+            else
+                $numOfPos = count($positive_by_hashtag[$hashtag]);
 
             if ($numOfNeg == $numOfPos) {
                 $most_controversial = $hashtag;
                 break;
-            }
-            else if ($numOfNeg < $numOfPos) {
+            } else if ($numOfNeg < $numOfPos) {
                 $percentage = $numOfNeg / $numOfPos;
                 if ($percentage > 0.4 &&
-                    abs($percentage - 0.5) < abs($this->best_percentage - 0.5))
-                {
+                    abs($percentage - 0.5) < abs($this->best_percentage - 0.5)
+                ) {
                     $most_controversial = $hashtag;
                     $this->best_percentage = $percentage;
                 }
-            }
-            else {
+            } else {
                 $percentage = $numOfPos / $numOfNeg;
                 if ($percentage > 0.4 &&
-                    abs($percentage - 0.5) < abs($this->best_percentage - 0.5))
-                {
+                    abs($percentage - 0.5) < abs($this->best_percentage - 0.5)
+                ) {
                     $most_controversial = $hashtag;
                     $this->best_percentage = $percentage;
                 }
@@ -97,7 +104,9 @@ class Statistics
         }
         return $most_controversial;
     }
-    function getPercentControversy(){
+
+    function getPercentControversy()
+    {
         $formatted = new NumberFormatter('en_US', NumberFormatter::PERCENT);
         return $formatted->format($this->best_percentage);
     }
