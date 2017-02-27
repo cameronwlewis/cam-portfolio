@@ -40,7 +40,7 @@ while ($row = pg_fetch_assoc($most_emotion)){
 }
 echo '</p>';
 echo '<p>Most controversial hashtag(s):';
-echo '#'.$most_controversy;
+echo '<br/>#'.$most_controversy;
 echo '<br/>';
 echo 'Percent split between sides: <br/>'.$stats->getPercentControversy();
 echo '</p>';
