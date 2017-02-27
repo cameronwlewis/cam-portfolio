@@ -47,10 +47,12 @@ function showLogout() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("main").style.display = 'none';
             document.getElementById("result").innerHTML = this.responseText;
+            setTimeout(showHome, 2200);
         }
     };
     xmlhttp.open("GET", "logout.php", true);
     xmlhttp.send();
+
 }
 
 function showStats() {
@@ -174,6 +176,7 @@ $(document).on('submit', '#login_form', function(e){
             success: function (response) {
                 console.log('it was clicked!');
                 $('#result').html(response);
+                setTimeout(showHome, 2200);
             },
             error: function () {
                 alert('error. Sorry pal!');
@@ -202,6 +205,7 @@ $(document).on('submit', '#account_creation', function(e){
         success: function (response) {
             console.log('it was clicked!');
             $('#result').html(response);
+            setTimeout(showHome, 2200);
         },
         error: function () {
             alert('error. Sorry pal!');

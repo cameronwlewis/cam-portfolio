@@ -22,17 +22,13 @@ if ($_SESSION['create_or_login'] == 'create') {
         $storage->attachToAccount($newUser['id'],
             $_SESSION['saved_search']);
     }
-
+    header( "refresh:3;url=index.php" );
     echo '<p>Account created!</p>';
 }
-// attach login to hashtags here
-//$_SESSION['create_or_login'] = 'login'; //TODO: delete when done
+// attach hashtags to login here
 if ($_SESSION['create_or_login'] == 'login') {
    $returningUser_name = $_POST['username'];
     $returningUser_pass = $_POST['password'];
-
-   //$returningUser_name = 'brittanylewis';//TODO: delete when done
-   //$returningUser_pass = 'cameron1';//TODO: delete when done
 
     $check_username = pg_query($connection, "SELECT id FROM users WHERE _user = '$returningUser_name'");
     $result_username = pg_fetch_assoc($check_username);
@@ -61,6 +57,7 @@ if ($_SESSION['create_or_login'] == 'login') {
                 $storage->attachToAccount($_SESSION['returningUser_id'],
                     $_SESSION['saved_search']);
         }
+        header( "refresh:3;url=index.php" );
     }
 }
 

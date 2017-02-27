@@ -14,7 +14,6 @@ $most_controversy = $stats->mostControversy();
 
 $formatted = new NumberFormatter('en_US', NumberFormatter::PERCENT);
 
-// TODO: maybe show these functions only after a click on the name. Make a link
 echo 'Most Negative hashtag(s): <br/>';
 while ($row = pg_fetch_assoc($most_negative)){
 
