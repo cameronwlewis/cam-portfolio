@@ -10,7 +10,9 @@ else {
     echo '<p>Choose a username: <input type="text" id="create_username"></p>';
     echo '<p>Choose a password: <input type="password" id="create_password"></p>';
     echo '<p><input type="submit"> </p>';
+    echo '<span id="existing_user" class="notify"></span>';
     echo '</form></div>';
+
 
     $_SESSION['create_or_login'] = 'create';
 }

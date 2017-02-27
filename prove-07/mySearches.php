@@ -2,8 +2,8 @@
 <?php
 session_start();
 if ($_SESSION['user_loggedIn'] == true) {
-    require ('Connection.php');
-    require ('DataStorage.php');
+    require('Connection.php');
+    require('DataStorage.php');
 
     $connection = new Connection();
     $storage = new DataStorage($connection);
@@ -19,17 +19,14 @@ if ($_SESSION['user_loggedIn'] == true) {
 
     //$searches = pg_fetch_assoc($saved_searches);
 
-    while($search = pg_fetch_assoc($saved_searches)){
+    while ($search = pg_fetch_assoc($saved_searches)) {
         echo '<p>';
-        echo '#'.$search['hashtag'].'<br/>';
-        echo 'Sentiment: '.$formatted->format($search['avg_sentiment']).'<br/>';
-        echo 'Magnitude: '.$formatted->format($search['avg_magnitude']);
+        echo '#' . $search['hashtag'] . '<br/>';
+        echo 'Sentiment: ' . $formatted->format($search['avg_sentiment']) . '<br/>';
+        echo 'Magnitude: ' . $formatted->format($search['avg_magnitude']);
         echo '</p>';
     }
-}
-else {
-    echo '<p>Log in to save your search results. Click 
-        <a id="login_link" href="javascript:showAccountCreation()">here</a> 
-            to make an account.</p><p>Already have an account? Log in 
-          <a id="login_link" href="javascript:showLogin()">here.</a></p>';
+} else {
+    echo '<p>Log in <a class="login_link" href="javascript:showLogin()">here</a> to see your past search results.
+            <p></p>Don\'t have an account? Create one <a class="login_link" href="javascript:showAccountCreation()">here.</a></p>';
 }

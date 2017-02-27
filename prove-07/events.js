@@ -178,6 +178,8 @@ $(document).on('submit', '#account_creation', function (e) {
     var username = $('#create_username').val();
     var password = $('#create_password').val();
 
+    var notify_existingUser = 'User already exists. Please choose a different username.';
+
     // Use AJAX to send data via POST and obtain the results of 'echo' in PHP script
     $.ajax({
 
@@ -186,8 +188,14 @@ $(document).on('submit', '#account_creation', function (e) {
         data: {username: username, password: password},
 
         success: function (response) {
-            $('#result').html(response);
-            setTimeout(showHome, 2200);
+            var existingUser = /exists/;
+            if (existingUser.test(response) == true){
+                $('#existing_user').html(notify_existingUser);
+            }
+            else {
+                $('#result').html(response);
+                setTimeout(showHome, 2200);
+            }
         },
         error: function () {
             alert('error. Sorry pal!');
