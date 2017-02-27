@@ -6,7 +6,8 @@ if ($_SESSION['user_loggedIn'] == true) {
 else {
     //TODO: prevent user from creating username > 30 && password > 15
     echo '<div class="account">Create an account.';
-    echo '<br/><span class="login_limitations">Username must be 30 characters or less.</span>';
+    echo '<br/><br/><span class="login_limitations">Username must be 30 characters or 
+less.</span>';
     echo '<br/><span class="login_limitations">Password must be 15 characters or less.</span>';
     echo '<form id="account_creation">';
     echo '<p>Choose a username: <input maxlength="30" type="text" id="create_username"></p>';
