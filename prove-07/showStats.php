@@ -13,7 +13,10 @@ $most_emotion = $stats->mostEmotion();
 $most_controversy = $stats->mostControversy();
 
 $formatted = new NumberFormatter('en_US', NumberFormatter::PERCENT);
-
+echo'<p style="font-size: 150%; font-weight: 100; ">Of the hashtags 
+users have
+ searched so 
+far</p>';
 echo 'Most Negative hashtag(s): <br/>';
 while ($row = pg_fetch_assoc($most_negative)){
 
