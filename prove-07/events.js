@@ -1,7 +1,6 @@
 /**
  * Created by cameronlewis on 2/17/17.
  */
-// TODO: make a central AJAX function for all these functions below to reference
 function showHome() {
 
     var xmlhttp = new XMLHttpRequest();
@@ -15,71 +14,38 @@ function showHome() {
     xmlhttp.send();
 }
 
-function showLogin() {
-
+function requestPage($page){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("main").style.display = 'none';
-            document.getElementById("result").innerHTML = this.responseText;
+            document.getElementById('main').style.display = 'none';
+            document.getElementById('result').innerHTML = this.responseText;
         }
     };
-    xmlhttp.open("GET", "Login.php", true);
+    xmlhttp.open("GET", $page, true);
     xmlhttp.send();
+}
+
+function showLogin() {
+    requestPage('Login.php');
 }
 
 function showAccountCreation() {
-
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("main").style.display = 'none';
-            document.getElementById("result").innerHTML = this.responseText;
-        }
-    };
-    xmlhttp.open("GET", "createAccount.php", true);
-    xmlhttp.send();
+    requestPage('createAccount.php');
 }
+
 function showLogout() {
-
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("main").style.display = 'none';
-            document.getElementById("result").innerHTML = this.responseText;
-            setTimeout(showHome, 2200);
-        }
-    };
-    xmlhttp.open("GET", "logout.php", true);
-    xmlhttp.send();
-
+    requestPage('logout.php');
 }
 
 function showStats() {
-
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("main").style.display = 'none';
-            document.getElementById("result").innerHTML = this.responseText;
-        }
-    };
-    xmlhttp.open("GET", "showStats.php", true);
-    xmlhttp.send();
+    requestPage('showStats.php');
 }
 
 function showMySearches() {
-
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("main").style.display = 'none';
-            document.getElementById("result").innerHTML = this.responseText;
-        }
-    };
-    xmlhttp.open("GET", "mySearches.php", true);
-    xmlhttp.send();
+    requestPage('mySearches.php');
 }
+
 function validateInput(input) {
     if (/[&;%@!"?\- ^~:}\{()+$<>_*]/.test(input) == true)
         document.getElementById('validation').innerHTML = "Invalid characters" +
@@ -142,12 +108,10 @@ $(document).on('submit', '#submit_hashtag', function(e){
             data: {input_hashtag: hashtag},
 
             success: function (response) {
-                console.log('it was clicked!');
                 $('#result').html(response);
             },
             error: function () {
                 alert('error. sorry pal');
-                console.log('there was an error, pal');
             },
             complete: function () {
                 loadingGIF('none');
@@ -174,13 +138,11 @@ $(document).on('submit', '#login_form', function(e){
             data: {username: username, password: password},
 
             success: function (response) {
-                console.log('it was clicked!');
                 $('#result').html(response);
                 setTimeout(showHome, 2200);
             },
             error: function () {
                 alert('error. Sorry pal!');
-                console.log('there was an error, pal');
             },
             complete: function () {
                 loadingGIF('none');
@@ -203,13 +165,11 @@ $(document).on('submit', '#account_creation', function(e){
         data: {username: username, password: password},
 
         success: function (response) {
-            console.log('it was clicked!');
             $('#result').html(response);
             setTimeout(showHome, 2200);
         },
         error: function () {
             alert('error. Sorry pal!');
-            console.log('there was an error, pal');
         },
         complete: function () {
             loadingGIF('none');
