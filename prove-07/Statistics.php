@@ -72,14 +72,13 @@ class Statistics
         # Determine the most controversial hashtag
         foreach ($sentiment_by_hashtag as $hashtag => $index) {
             if (isset($negative_by_hashtag[$hashtag]))
-                $numOfNeg = 0;
-            else
                 $numOfNeg = count($negative_by_hashtag[$hashtag]);
-
-            if (isset($positive_by_hashtag[$hashtag]))
-                $numOfPos = 0;
             else
+                $numOfNeg = 0;
+            if (isset($positive_by_hashtag[$hashtag]))
                 $numOfPos = count($positive_by_hashtag[$hashtag]);
+            else
+                $numOfPos = 0;
 
             if ($numOfNeg == $numOfPos) {
                 $most_controversial = $hashtag;
