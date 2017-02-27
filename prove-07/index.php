@@ -1,8 +1,9 @@
 <?php
 session_start();
 ?>
-//TODO: fix the flipping menu. Gosh dangit that thing!
+
 <!DOCTYPE HTML>
+<!--TODO: fix the flipping menu. Gosh dangit that thing!-->
 <head>
     <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
     <script src="jquery-3.1.1.min.js"></script>
