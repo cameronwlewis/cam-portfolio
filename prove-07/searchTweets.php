@@ -78,6 +78,9 @@ $storage->storeAvgSentiment($last_hashtag_id, $sentiment_average,
     $magnitude_average);
 
 if (!$_SESSION['user_loggedIn']){
+    # Save results to session
+    $_SESSION['saved_search'] = $last_hashtag_id;
+
     echo '<p>Save your results! Click 
         <a id="login_link" href="javascript:showAccountCreation()">here</a> 
             to make an account.</p><p>Already have an account? Log in 
@@ -87,5 +90,3 @@ else {
     $storage->attachToAccount($_SESSION['returningUser_id'], $last_hashtag_id);
 }
 
-# Save results to session
-$_SESSION['saved_search'] = $last_hashtag_id;

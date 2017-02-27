@@ -27,7 +27,7 @@ if ($_SESSION['user_loggedIn'] == true) {
     }
 }
 else {
-    echo '<p>Log in to see your results. Click 
+    echo '<p>Log in to save your search results. Click 
         <a id="login_link" href="javascript:showAccountCreation()">here</a> 
             to make an account.</p><p>Already have an account? Log in 
           <a id="login_link" href="javascript:showLogin()">here.</a></p>';

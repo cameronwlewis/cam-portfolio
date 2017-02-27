@@ -26,9 +26,13 @@ if ($_SESSION['create_or_login'] == 'create') {
     echo '<p>Account created!</p>';
 }
 // attach login to hashtags here
+//$_SESSION['create_or_login'] = 'login'; //TODO: delete when done
 if ($_SESSION['create_or_login'] == 'login') {
-    $returningUser_name = $_POST['username'];
+   $returningUser_name = $_POST['username'];
     $returningUser_pass = $_POST['password'];
+
+   //$returningUser_name = 'brittanylewis';//TODO: delete when done
+   //$returningUser_pass = 'cameron1';//TODO: delete when done
 
     $check_username = pg_query($connection, "SELECT id FROM users WHERE _user = '$returningUser_name'");
     $result_username = pg_fetch_assoc($check_username);
@@ -46,6 +50,8 @@ if ($_SESSION['create_or_login'] == 'login') {
         echo '<p>Incorrect password. Please try again.';
     }
     else if ($result_username['id'] == $result_password['id']) {
+
+        $_SESSION['create_or_login'] = null;
         $_SESSION['user_loggedIn'] = true;
         $_SESSION['returningUser_id'] = $result_username['id'];
         echo '<p>You\'ve logged in successfully.</p>
