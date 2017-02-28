@@ -63,21 +63,6 @@ function validateSearch(input) {
         document.getElementById('validation').innerHTML = "";
 }
 
-function validateNewAccount() {
-    var first_pass = document.getElementById('create_password');
-    var second_pass = document.getElementById('confirm_password');
-    var username = document.getElementById('create_username');
-
-    if (username == '')
-        document.getElementById('create_username').innerHTML = 'You must' +
-            ' choose a username.';
-    if (second_pass != '' && first_pass != second_pass)
-        document.getElementById('non-matching_pass').innerHTML = 'Passwords' +
-            ' do not match.';
-    else if (second_pass == first_pass)
-        document.getElementById('non-matching_pass').innerHTML = '';
-}
-
 function loadingGIF(x) {
     var loading = document.getElementById('loading');
     loading.style.display = x;
@@ -209,13 +194,11 @@ $(document).on('submit', '#account_creation', function (e) {
 
         success: function (response) {
             var existingUser = /exists/;
-            if (existingUser.test(response) == true){
+            if (existingUser.test(response) == true)
                 $('#existing_user').html(notify_existingUser);
-            }
-            else if (document.getElementById('non-matching_pass').innerHTML == ''){
+            else
                 $('#result').html(response);
                 setTimeout(showHome, 2200);
-            }
         },
         error: function () {
             alert('error. Sorry pal!');

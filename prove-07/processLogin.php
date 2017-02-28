@@ -9,7 +9,6 @@ $storage = new DataStorage($connection);
 $connection = $connection->connectHeroku();
 
 $_SESSION['user_loggedIn'] = false;
-
 if ($_SESSION['create_or_login'] == 'create') {
 
     $create_username = $_POST['username'];
@@ -32,6 +31,7 @@ if ($_SESSION['create_or_login'] == 'create') {
                 $_SESSION['saved_search']);
         }
         $_SESSION['user_loggedIn'] = true;
+        $_SESSION['returningUser_id'] = $newUser['id'];
         echo '<p>Account created!</p><p>Redirecting...</p>';
     }
 }

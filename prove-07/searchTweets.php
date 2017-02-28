@@ -40,8 +40,12 @@ $last_hashtag_id = $storage->storeHashtag($hashtag);
 $tweets = $twitter->get("search/tweets", ["q" => $query, "lang" =>
     'en', 'result_type' => 'recent', 'count' => 30,]);
 
+# Even though we requested 30 tweets, we have to count the amount of results we
+# received, since sometimes there aren't even matches for the hashtag searched.
+$count = count($tweets->statuses);
+
 # Loop that gets the sentiment of each tweet
-for ($i = 0; $i < 30; $i++) {
+for ($i = 0; $i < $count; $i++) {
     $user_name[$i] = $tweets->statuses[$i]->user->screen_name;
     $user_followers[$i] = $tweets->statuses[$i]->user->followers_count;
     $user_text[$i] = $tweets->statuses[$i]->text;
@@ -66,11 +70,11 @@ for ($i = 0; $i < 30; $i++) {
 }
 
 # Divide to get the average sentiment and magnitude for all the tweets analyzed
-$sentiment_average = $sentiment_scores / 30;
+$sentiment_average = $sentiment_scores / $count;
 echo 'Sentiment: ' . $formatted->format($sentiment_average);
 echo '<br/>';
 
-$magnitude_average = $magnitude_scores / 30;
+$magnitude_average = $magnitude_scores / $count;
 echo 'Magnitude: ' . $formatted->format($magnitude_average);
 
 # Store the averages
@@ -87,6 +91,7 @@ if (!$_SESSION['user_loggedIn']){
           <a class="login_link" href="javascript:showLogin()">here</a>.</p>';
 }
 else {
+    $_SESSION['hasSearched'] = true;
     $storage->attachToAccount($_SESSION['returningUser_id'], $last_hashtag_id);
 }
 

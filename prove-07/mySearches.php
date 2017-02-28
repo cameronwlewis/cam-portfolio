@@ -1,7 +1,7 @@
 <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 <?php
 session_start();
-if ($_SESSION['user_loggedIn'] == true) {
+if ($_SESSION['user_loggedIn'] == true && isset($_SESSION['returningUser_id'])) {
     require('Connection.php');
     require('DataStorage.php');
 
@@ -19,11 +19,15 @@ if ($_SESSION['user_loggedIn'] == true) {
       ON averages.hashtag_id = hashtag.id 
       WHERE savedsearches.user_id = '$returningUser_id' AND 
       savedsearches.hashtag_id = hashtag.id");
+    //var_dump(pg_fetch_assoc($saved_searches));
+    //var_dump(pg_fetch_assoc($saved_searches));
 
-    if (pg_fetch_assoc($saved_searches) == false) {
+    $searches = pg_fetch_assoc($saved_searches);
+    //var_dump($searches);
+    if (!isset($searches['hashtag'])) {
         echo 'You haven\'t made any searches yet!<p><a class="login_link" href="javascript:showHome()">Return to search</a> </p>';
     } else {
-        while ($search = pg_fetch_assoc($saved_searches)) {
+        while ($search = $searches) {
             echo '<p>';
             echo '#' . $search['hashtag'] . '<br/>';
             echo 'Sentiment: ' . $formatted->format($search['avg_sentiment']) . '<br/>';
