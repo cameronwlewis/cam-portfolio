@@ -3,77 +3,35 @@ session_start();
 ?>
 
 <!DOCTYPE HTML>
-<!--TODO: fix the flipping menu. Gosh dangit that thing!-->
 <head>
     <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
     <script src="jquery-3.1.1.min.js"></script>
 </head>
 <body>
-<div id="wrapper" class="wrapper">
-
     <div class="buttons">
-        <input type="image" src="menu_icon.png" id="button--slide-left"
-               class="button">
+        <input type="image" src="menu_icon.png" style="width: 2%;" onclick="openNav()">
     </div>
 
-</div><!-- /wrapper -->
-
 <!-- menu -->
-<nav id="menu--slide-left" class="menu menu--slide-left">
-    <button class="menu__close">&larr; Close Menu</button>
-    <ol class="menu__items">
-        <li class="menu__item">
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn"
+       onclick="closeNav()">&times;</a>
 
-            <div>
-                <span style="padding-left: 8%">+</span>
-                <a id="showHome" href="javascript:showHome()"
-                   onmouseover="mouseOver(this)"
-                   onmouseout="mouseOut(this)" href="index.php"
-                   class="menu__link">Search</a>
-            </div>
-        </li>
-        <li class="menu__item">
+    <a onmouseover="mouseOver(this)" onmouseout="mouseOut(this)"
+       href="javascript:showHome()">Search</a>
 
-            <div>
-                <span style="padding-left: 8%">+</span>
-                <a id="statistics" onmouseover="mouseOver(this)"
-                   onmouseout="mouseOut(this)"
-                   href="javascript:showLogin()"
-                   class="menu__link">Login</a>
-            </div>
-        </li>
-        <li class="menu__item">
+    <a onmouseover="mouseOver(this)" onmouseout="mouseOut(this)"
+       href="javascript:showLogin()">Login</a>
 
-            <div>
-                <span style="padding-left: 8%">+</span>
-                <a id="mySearches" href="javascript:showMySearches()"
-                   onmouseover="mouseOver(this)"
-                   onmouseout="mouseOut(this)" href="mySearches.php"
-                   class="menu__link">My
-                    Searches</a>
-            </div>
-        </li>
-        <li class="menu__item">
-            <div>
-                <span style="padding-left: 8%">+</span>
-                <a id="showStats" onmouseover="mouseOver(this)"
-                   onmouseout="mouseOut(this)"
-                   href="javascript:showStats()"
-                   class="menu__link">Statistics</a>
-            </div>
-        </li>
-        <li class="menu__item">
-            <div>
-                <span style="padding-left: 8%">+</span>
-                <a id="showLogout" onmouseover="mouseOver(this)"
-                   onmouseout="mouseOut(this)"
-                   href="javascript:showLogout()"
-                   class="menu__link">Log Out</a>
-            </div>
-        </li>
+    <a onmouseover="mouseOver(this)" onmouseout="mouseOut(this)"
+       href="javascript:showMySearches()">My Searches</a>
 
-    </ol>
-</nav>
+    <a onmouseover="mouseOver(this)" onmouseout="mouseOut(this)"
+       href="javascript:showStats()">Statistics</a>
+
+    <a onmouseover="mouseOver(this)" onmouseout="mouseOut(this)"
+       href="javascript:showLogout()">Log Out</a>
+</div>
 
 <div id="mask" class="mask"></div><!-- /mask -->
 <script src="events.js"></script>
@@ -102,7 +60,7 @@ session_start();
 
 </div>
 <div id="loading" style="display: none;"><img src="loading_spinner.gif"
-                                                 style=" width: 5%">
+                                              style=" width: 5%">
 </div>
 <div id="result"></div>
 <div id="notify"></div>

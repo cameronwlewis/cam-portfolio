@@ -2,6 +2,7 @@
  * Created by cameronlewis on 2/17/17.
  */
 function showHome() {
+    closeNav();
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -13,6 +14,23 @@ function showHome() {
     xmlhttp.send();
 }
 
+function requestPage(page) {
+    closeNav();
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('main').style.display = 'none';
+            document.getElementById('result').innerHTML = this.responseText;
+            var redirect = /Logged out|already logged/;
+
+            if (redirect.test(this.responseText) == true) {
+                setTimeout(showHome, 2200);
+            }
+        }
+    };
+    xmlhttp.open("GET", page, true);
+    xmlhttp.send();
+}
 
 function showLogin() {
     requestPage('Login.php');

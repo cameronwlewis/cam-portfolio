@@ -7,7 +7,7 @@ if (!is_null($_SESSION['user_loggedIn'])) {
     $_SESSION['create_or_login'] = null;
     session_destroy();
 
-    echo 'Logged out successfully.';
+    echo 'Logged out successfully.<p>Redirecting...</p>';
 }
 else {
     echo 'You are not logged in. Log in 
