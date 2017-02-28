@@ -13,22 +13,6 @@ function showHome() {
     xmlhttp.send();
 }
 
-function requestPage(page) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById('main').style.display = 'none';
-            document.getElementById('result').innerHTML = this.responseText;
-            var redirect = /Logged out|already logged/;
-
-            if (redirect.test(this.responseText) == true) {
-                setTimeout(showHome, 2200);
-            }
-        }
-    };
-    xmlhttp.open("GET", page, true);
-    xmlhttp.send();
-}
 
 function showLogin() {
     requestPage('Login.php');
@@ -149,7 +133,10 @@ $(document).on('submit', '#login_form', function (e) {
                 console.log('user not found baby');
                 $('#user_notfound').html(notify_bad_user);
                 $('#bad_pass').html('');
-            }
+            }//TODO: maybe use session variables instead of regex for page
+            // redirects.
+                // set to 'true' in processLogin, then 'false' here in these
+                // if statements to reset them.
             else if(bad_pass.test(response)==true){
                 console.log('pass not found baby');
                 $('#bad_pass').html(notify_bad_pass);

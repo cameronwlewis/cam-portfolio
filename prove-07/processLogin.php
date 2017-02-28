@@ -29,7 +29,7 @@ if ($_SESSION['create_or_login'] == 'create') {
             $storage->attachToAccount($newUser['id'],
                 $_SESSION['saved_search']);
         }
-        echo '<p>Account created!</p>';
+        echo '<p>Account created!</p><p>Redirecting...</p>';
     }
 }
 // attach hashtags to login here
@@ -49,7 +49,7 @@ if ($_SESSION['create_or_login'] == 'login') {
     } else if ($result_password == false) {
         echo 'Incorrect password.';
     } else if ($result_username['id'] == $result_password['id']) {
-        echo 'Login successful.';
+        echo 'Login successful.<p>Redirecting...</p>';
         $_SESSION['create_or_login'] = null;
         $_SESSION['user_loggedIn'] = true;
         $_SESSION['returningUser_id'] = $result_username['id'];

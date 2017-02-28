@@ -52,6 +52,7 @@ slideLeftBtn.addEventListener('click', function (e) {
         this.mask = document.querySelector(this.options.maskId);
         this.menu = document.querySelector('#menu--' + this.options.type);
         this.closeBtn = this.menu.querySelector('.menu__close');
+        this.menuItem = this.menu.querySelector('menu__link');
         this.menuOpeners = document.querySelectorAll(this.options.menuOpenerClass);
         this._initEvents();
     };
@@ -108,3 +109,31 @@ var slideLeft = new Menu({
     menuOpenerClass: '.button',
     maskId: '#mask'
 });
+
+function requestPage(page) {
+    //debug.menuItem.close();
+    //debug.Menu.close();
+
+    var hi = new Menu;
+    var hi2 = window.Menu;
+        document.querySelector('menu__link');
+  //  menuLink_click.close();
+    //hi2.Menu.close();
+
+    var hi3 = Menu;
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('main').style.display = 'none';
+            document.getElementById('result').innerHTML = this.responseText;
+            var redirect = /Logged out|already logged/;
+
+            if (redirect.test(this.responseText) == true) {
+                setTimeout(showHome, 2200);
+            }
+        }
+    };
+    xmlhttp.open("GET", page, true);
+    xmlhttp.send();
+}
