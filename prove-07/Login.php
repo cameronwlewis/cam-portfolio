@@ -2,14 +2,15 @@
 <?php
 session_start();
 if ($_SESSION['user_loggedIn'] == true) {
-    echo 'You\'re already logged in!';
+    echo 'You\'re already logged in!<p>Click <a class="login_link" href="javascript:showLogout()">
+        here</a> to log out.</p>';
 }
 else {
 //require ('events.js');
     echo '<div class="account">Log in here.';
     echo '<form id="login_form">';
-    echo '<p>Username: <input type="text" id="returningUser_name"></p>';
-    echo '<p>Password: <input type="password" id="returningUser_pass"></p>';
+    echo '<p class="login_prompt">Username: <input type="text" id="returningUser_name"></p>';
+    echo '<p class="login_prompt">Password: <input type="password" id="returningUser_pass"></p>';
     echo '<p><input type="submit"> </p>';
     echo '</form></div>';
     echo '<span id="user_notfound" class="notify"></span>';

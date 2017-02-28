@@ -5,6 +5,7 @@ if (!is_null($_SESSION['user_loggedIn'])) {
     $_SESSION['user_loggedIn'] = false;
     $_SESSION['returningUser_id'] = null;
     $_SESSION['create_or_login'] = null;
+    $_SESSION['saved_search'] = null;
     session_destroy();
 
     echo 'Logged out successfully.<p>Redirecting...</p>';

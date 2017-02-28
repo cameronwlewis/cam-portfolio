@@ -44,7 +44,7 @@ session_start();
         <p>
             <input size="23" type="text" id="input_hashtag" class="front_page"
                    placeholder="just feed me a #hashtag"
-                   oninput="validateInput(this.value)" name="input_hashtag">
+                   oninput="validateSearch(this.value)" name="input_hashtag">
         </p>
         <span id="validation"></span>
         </p>

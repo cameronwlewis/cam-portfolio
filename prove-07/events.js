@@ -21,7 +21,7 @@ function requestPage(page) {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById('main').style.display = 'none';
             document.getElementById('result').innerHTML = this.responseText;
-            var redirect = /Logged out|already logged/;
+            var redirect = /Logged out/;
 
             if (redirect.test(this.responseText) == true) {
                 setTimeout(showHome, 2200);
@@ -52,12 +52,30 @@ function showMySearches() {
     requestPage('mySearches.php');
 }
 
-function validateInput(input) {
+function validateSearch(input) {
     if (/[&;%@!"?\- ^~:}\{()+$<>_*]/.test(input) == true)
         document.getElementById('validation').innerHTML = "Invalid characters" +
             " entered.";
+    else if (input =='')
+        document.getElementById('validation').innerHTML = "Nothing was" +
+            " entered.";
     else
         document.getElementById('validation').innerHTML = "";
+}
+
+function validateNewAccount() {
+    var first_pass = document.getElementById('create_password');
+    var second_pass = document.getElementById('confirm_password');
+    var username = document.getElementById('create_username');
+
+    if (username == '')
+        document.getElementById('create_username').innerHTML = 'You must' +
+            ' choose a username.';
+    if (second_pass != '' && first_pass != second_pass)
+        document.getElementById('non-matching_pass').innerHTML = 'Passwords' +
+            ' do not match.';
+    else if (second_pass == first_pass)
+        document.getElementById('non-matching_pass').innerHTML = '';
 }
 
 function loadingGIF(x) {
@@ -97,8 +115,8 @@ $(document).on('mouseenter', '#what_is_this', function (e) {
 
 $(document).on('submit', '#submit_hashtag', function (e) {
     e.preventDefault();
-    var text = document.getElementById('validation').innerHTML;
-    if (text == "") {
+    var validation = document.getElementById('validation').innerHTML;
+    if (validation == "") {
         loadingGIF('block');
 
         var hashtag = $('#input_hashtag').val();
@@ -151,10 +169,7 @@ $(document).on('submit', '#login_form', function (e) {
                 console.log('user not found baby');
                 $('#user_notfound').html(notify_bad_user);
                 $('#bad_pass').html('');
-            }//TODO: maybe use session variables instead of regex for page
-            // redirects.
-                // set to 'true' in processLogin, then 'false' here in these
-                // if statements to reset them.
+            }
             else if(bad_pass.test(response)==true){
                 console.log('pass not found baby');
                 $('#bad_pass').html(notify_bad_pass);
@@ -197,7 +212,7 @@ $(document).on('submit', '#account_creation', function (e) {
             if (existingUser.test(response) == true){
                 $('#existing_user').html(notify_existingUser);
             }
-            else {
+            else if (document.getElementById('non-matching_pass').innerHTML == ''){
                 $('#result').html(response);
                 setTimeout(showHome, 2200);
             }

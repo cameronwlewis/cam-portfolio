@@ -77,13 +77,13 @@ body {
     font-family: Helvetica Neue, serif;
     font-weight: lighter;
     text-align: center;
-    padding: 2%;
     font-size: 200%;
-}
-
-#result, #loading {
     padding: 0;
     margin: 0;
+}
+
+.login_prompt {
+    font-size: 75%;
 }
 
 .explanation {
