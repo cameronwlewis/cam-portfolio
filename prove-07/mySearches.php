@@ -1,6 +1,7 @@
 <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 <?php
 session_start();
+
 if ($_SESSION['user_loggedIn'] == true && isset($_SESSION['returningUser_id'])) {
     require('Connection.php');
     require('DataStorage.php');
@@ -19,23 +20,19 @@ if ($_SESSION['user_loggedIn'] == true && isset($_SESSION['returningUser_id'])) 
       ON averages.hashtag_id = hashtag.id 
       WHERE savedsearches.user_id = '$returningUser_id' AND 
       savedsearches.hashtag_id = hashtag.id");
-    //var_dump(pg_fetch_assoc($saved_searches));
-    //var_dump(pg_fetch_assoc($saved_searches));
 
-    $searches = pg_fetch_assoc($saved_searches);
-    //var_dump($searches);
-    if (!isset($searches['hashtag'])) {
-        echo 'You haven\'t made any searches yet!<p><a class="login_link" href="javascript:showHome()">Return to search</a> </p>';
-    } else {
-        while ($search = $searches) {
-            echo '<p>';
-            echo '#' . $search['hashtag'] . '<br/>';
-            echo 'Sentiment: ' . $formatted->format($search['avg_sentiment']) . '<br/>';
-            echo 'Magnitude: ' . $formatted->format($search['avg_magnitude']);
-            echo '</p>';
-        }
+    $hasSearches = false;
+    while ($search = pg_fetch_assoc($saved_searches)) {
+        echo '<p>';
+        echo '#' . $search['hashtag'] . '<br/>';
+        echo 'Sentiment: ' . $formatted->format
+            ($search['avg_sentiment']) . '<br/>';
+        echo 'Magnitude: ' . $formatted->format($search['avg_magnitude']);
+        echo '</p>';
+        $hasSearches = true;
     }
-} else {
+    if ($hasSearches == false)
+        echo 'You haven\'t made any searches yet!<p><a class="login_link" href="javascript:showHome()">Return to search</a> </p>';
+} else
     echo '<p>Log in <a class="login_link" href="javascript:showLogin()">here</a> to see your past search results.
             <p></p>Don\'t have an account? Create one <a class="login_link" href="javascript:showAccountCreation()">here.</a></p>';
-}
