@@ -34,7 +34,7 @@ $hashtag = $_POST['input_hashtag'];
 # the Twitter API
 $hashtag = str_replace('#', '', $hashtag);
 
-$query = '%23' . $hashtag;
+$query = '%23'. $hashtag;
 $last_hashtag_id = $storage->storeHashtag($hashtag);
 
 $tweets = $twitter->get("search/tweets", ["q" => $query, "lang" =>
