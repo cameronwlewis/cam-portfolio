@@ -125,7 +125,7 @@ $(document).on('submit', '#submit_hashtag', function (e) {
         });
     }
     else {
-        alert('Please remove the invalid characters to submit.');
+        alert('Please correct the errors to submit.');
     }
 });
 

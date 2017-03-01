@@ -39,8 +39,8 @@ session_start();
 <div id="main">
     <form id="submit_hashtag" style="display: block">
         <p>
-            <label for="input_hashtag" id="main_heading"
-                   class="front_page">Analyze </br>Sentiment.</label>
+            <span id="main_heading"
+                   class="front_page">Analyze <br/>Sentiment.</span>
         <p>
             <input size="23" type="text" id="input_hashtag" class="front_page"
                    placeholder="just feed me a #hashtag"
