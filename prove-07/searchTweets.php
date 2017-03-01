@@ -48,11 +48,9 @@ for ($i = 0; $i < $count; $i++) {
     $user_name[$i] = $tweets->statuses[$i]->user->screen_name;
     $user_followers[$i] = $tweets->statuses[$i]->user->followers_count;
     $user_text[$i] = $tweets->statuses[$i]->text;
-    echo 'hi 1';
+
     $annotation = $google_cloud->analyzeSentiment($user_text[$i]);
-    echo 'hi 2';
     $analysis = $annotation->sentiment();
-    echo 'hi 3';
 
     $sentiment = $analysis['score'];
     $magnitude = $analysis['magnitude'];
