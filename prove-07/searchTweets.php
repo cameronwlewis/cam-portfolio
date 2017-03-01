@@ -33,12 +33,11 @@ $hashtag = $_POST['input_hashtag'];
 # If present, make sure pound character (#) is removed prior to sending input to
 # the Twitter API
 $hashtag = str_replace('#', '', $hashtag);
-
 $query = '%23'. $hashtag;
 $last_hashtag_id = $storage->storeHashtag($hashtag);
 
 $tweets = $twitter->get("search/tweets", ["q" => $query, "lang" =>
-    'en', 'result_type' => 'recent', 'count' => 30,]);
+    'en', 'result_type' => 'recent', 'count' => 15,]);
 
 # Even though we requested 30 tweets, we have to count the amount of results we
 # received, since sometimes there aren't even matches for the hashtag searched.
@@ -49,9 +48,11 @@ for ($i = 0; $i < $count; $i++) {
     $user_name[$i] = $tweets->statuses[$i]->user->screen_name;
     $user_followers[$i] = $tweets->statuses[$i]->user->followers_count;
     $user_text[$i] = $tweets->statuses[$i]->text;
-
+    echo 'hi 1';
     $annotation = $google_cloud->analyzeSentiment($user_text[$i]);
+    echo 'hi 2';
     $analysis = $annotation->sentiment();
+    echo 'hi 3';
 
     $sentiment = $analysis['score'];
     $magnitude = $analysis['magnitude'];
