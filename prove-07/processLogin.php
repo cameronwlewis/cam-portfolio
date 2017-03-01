@@ -32,6 +32,8 @@ if ($_SESSION['create_or_login'] == 'create') {
         }
         $_SESSION['user_loggedIn'] = true;
         $_SESSION['returningUser_id'] = $newUser['id'];
+        $create_password = null;
+        $create_username = null;
         echo '<p>Account created!</p><p>Redirecting...</p>';
     }
 }
