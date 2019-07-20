@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     async onNewUserMessage(message) {
-      let nlpResponseObj = await makeNlpRequest(message);
-      let nlpResponseText = getNlpResponseText(nlpResponseObj);
+      const nlpResponseObj = await makeNlpRequest(message);
+      const nlpResponseText = getNlpResponseText(nlpResponseObj);
       this.response = buildMessage(1, "GoogleNLP", nlpResponseText);
     }
   }
