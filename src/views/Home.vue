@@ -4,8 +4,8 @@
       <basic-vue-chat
         :title="'Text Sentiment'"
         v-bind:initial-feed="this.initialFeed"
+        v-bind:new-message="message"
       />
-      <basic-vue-chat v-bind:new-message="message" />
     </b-container>
   </div>
 </template>

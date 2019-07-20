@@ -19,5 +19,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-/compute-engine-key.json.decrypted
+/compute-engine-key.json
 /src/services/messagebuilder.js
