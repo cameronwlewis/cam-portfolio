@@ -4,7 +4,7 @@ import axios from "axios";
 export async function makeNlpRequest(message) {
   let endpoint =
     "https://language.googleapis.com/v1beta2/documents:analyzeSentiment?key=";
-  let apiKey = "AIzaSyArHVYdDqaLySgyQ6Md0SUiqJ1X54l_Epk";
+  let apiKey = "NLP_API_KEY";
   let resp = "";
   await axios
     .post(endpoint + apiKey, {
