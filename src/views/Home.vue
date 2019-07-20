@@ -1,17 +1,23 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <b-container>
+      <basic-vue-chat
+        :title="'Text Sentiment'"
+        v-bind:initial-feed="this.initialFeed"
+      />
+      <basic-vue-chat v-bind:new-message="message" />
+    </b-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import BasicVueChat from "basic-vue-chat";
 
 export default {
+  el: "#home",
   name: "home",
   components: {
-    HelloWorld
+    BasicVueChat
   }
 };
 </script>

@@ -6,5 +6,16 @@ steps:
     entrypoint: npm
     args: ["run", "build"]
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy"]
+    args:
+      - kms
+      - decrypt
+      - --ciphertext-file=compute-engine-key.json.encrypted
+        - --plaintext-file=compute-engine-key.json
+        - --location=global
+        - --keyring=storage
+        - --key=mykey
+  - secrets:
+      - kmsKeyName: projects/text-sentiment-247119/locations/global/keyRings/storage/cryptoKeys/mykey
+        secretEnv:
+          GOOGLE_APPLICATION_CREDENTIALS: compute-engine-key.json
 timeout: "1600s"

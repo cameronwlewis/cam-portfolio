@@ -5,6 +5,7 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
+    <!-- above: this is how/where all the components from router.js get loaded-->
   </div>
 </template>
 
