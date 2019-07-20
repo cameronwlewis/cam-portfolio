@@ -14,8 +14,8 @@ steps:
         - --location=global
         - --keyring=storage
         - --key=mykey
-  - secrets:
-      - kmsKeyName: projects/text-sentiment-247119/locations/global/keyRings/storage/cryptoKeys/mykey
-        secretEnv:
-          GOOGLE_APPLICATION_CREDENTIALS: compute-engine-key.json
+secrets:
+- kmsKeyName: projects/text-sentiment-247119/locations/global/keyRings/storage/cryptoKeys/mykey
+  secretEnv:
+    GOOGLE_APPLICATION_CREDENTIALS: compute-engine-key.json
 timeout: "1600s"
