@@ -8,10 +8,3 @@ handlers:
   - url: /.*
     static_files: dist/index.html
     upload: dist/index.html
-
-gcloud kms encrypt \
---plaintext-file=compute-engine-key.json \
---ciphertext-file=compute-engine-key.json22.encrypted \
---location=global \
---keyring=storage \
---key=mykey | base64
