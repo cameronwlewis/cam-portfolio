@@ -1,17 +1,12 @@
-/*
- * 1. make api requests()
- * 2. receive api response()
- */
 import axios from "axios";
 
 // api requests are made here
-export function makeNlpRequest(message) {
+export async function makeNlpRequest(message) {
   let endpoint =
     "https://language.googleapis.com/v1beta2/documents:analyzeSentiment?key=";
   let apiKey = "AIzaSyArHVYdDqaLySgyQ6Md0SUiqJ1X54l_Epk";
-  let nlpResponse = "";
-
-  axios
+  let resp = "";
+  await axios
     .post(endpoint + apiKey, {
       document: {
         content: message,
@@ -21,16 +16,16 @@ export function makeNlpRequest(message) {
     })
     .then(response => {
       console.log(response.data);
-      console.log("---->>>>NLP Response Success");
+      console.log("NLP request successful.");
+      resp = response.data;
     })
     .catch(error => {
       console.log("There was an error:" + error.response);
     });
-  // eslint-disable-next-line no-undef,no-unused-vars
-  return nlpResponse;
+  return resp;
 }
 
-export function prettifyNlpResponse(nlpResponseObj) {
+export function getNlpResponseText(nlpResponseObj) {
   return (
     "Score: " +
     nlpResponseObj.documentSentiment.score +

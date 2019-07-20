@@ -12,7 +12,7 @@
 
 <script>
 import BasicVueChat from "basic-vue-chat";
-import { makeNlpRequest, prettifyNlpResponse } from "@/services/nlp-service";
+import { makeNlpRequest, getNlpResponseText } from "@/services/nlp-service";
 import buildMessage from "@/services/chat-service";
 
 export default {
@@ -23,17 +23,14 @@ export default {
   },
   data: function() {
     return {
-      response: ""
+      response: {}
     };
   },
   methods: {
-    updateFeed(newFeed) {
-      return newFeed;
-    },
-    onNewUserMessage(message) {
-      let nlpResponseObj = makeNlpRequest(message);
-      let prettyNlpResponse = prettifyNlpResponse(nlpResponseObj);
-      this.response = buildMessage(1, "GoogleNLP", prettyNlpResponse);
+    async onNewUserMessage(message) {
+      let nlpResponseObj = await makeNlpRequest(message);
+      let nlpResponseText = getNlpResponseText(nlpResponseObj);
+      this.response = buildMessage(1, "GoogleNLP", nlpResponseText);
     }
   }
 };
