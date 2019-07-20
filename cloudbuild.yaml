@@ -7,9 +7,4 @@ steps:
     args: ["run", "build"]
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy"]
-    secretEnv: ['NLP_API_KEY']
-secrets:
-  - kmsKeyName: projects/text-sentiment-247119/locations/global/keyRings/storage/cryptoKeys/mykey
-    secretEnv:
-      NLP_API_KEY: CiQAavaFy+qsO/XHOc2qgghqWIBIOVFnbGku1hho8O/QCMSJPWESUAD3CPGERHblEUyLMm2dDGKXijwNk4pWYs11Uyi3nUOLj4lUIZNZxnqxfDir0A/5UimD0p3e4o9HUhHsE4G9vGAeo6ppvbZrrQobWifFOHLb
 timeout: "1600s"
