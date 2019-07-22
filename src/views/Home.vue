@@ -12,7 +12,7 @@
 
 <script>
 import BasicVueChat from "basic-vue-chat";
-import { makeNlpRequest, getNlpResponseText } from "@/services/nlp-service";
+import { makeNlpRequest } from "@/services/nlp-service";
 import buildMessage from "@/services/chat-service";
 
 export default {
@@ -28,9 +28,12 @@ export default {
   },
   methods: {
     async onNewUserMessage(message) {
-      const nlpResponseObj = await makeNlpRequest(message);
-      const nlpResponseText = getNlpResponseText(nlpResponseObj);
-      this.response = buildMessage(1, "GoogleNLP", nlpResponseText);
+      const { score, magnitude } = await makeNlpRequest(message);
+      this.response = buildMessage(
+        1,
+        "GoogleNLP",
+        `The score was ${score} and magnitude was ${magnitude}`
+      );
     }
   }
 };
