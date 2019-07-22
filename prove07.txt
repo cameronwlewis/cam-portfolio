@@ -1,0 +1,76 @@
+After completing the assignment, please answer the questions in this text file and submit it to I-Learn.
+
+1. Project Title / One sentence description:
+	Tweet sentiment analysis by hashtag.
+
+2. Copy and paste the URL for your web application:
+	https://cs313cameronlewis.herokuapp.com/week-07/prove-07/index.php
+
+3. Copy and paste the URL for your source code repository (e.g., GitHub):
+	https://github.com/MrGoodBear/cs313
+
+4. Please provide a brief description of what your project does and how to use the application. Make sure to include any required information such as a username/password if necessary.
+	There's no username or password neccessary, unless you'd like your search results to be saved, in which case a login
+	may be created to do so.
+	
+	The premise of the site is cloud-powered tweet analysis by hashtag. The site's basic flow is this:
+	- User types in a hashtag
+	- 30 of the most recent tweets tagged with the searched hashtag are retrieved from Twitter using the Twitter API.
+	- The tweets are then sent to Google Cloud to be analyzed through their Natural Language API.
+	- An average is calculated from the sentiment and magnitude (Google's terms!) measurements of each individual tweet, and shown to the user.
+	- The tweets are stored permanently into a Heroku PostgreSQL database.
+	- Then if desired, the user may create an account to save the results of their search for quick access.
+	- Additionally, the user may click on 'Statistics' to see insights about all the hashtags searched so far. 
+	
+	I've tried to make the site simple through what I believe is a straightforward purpose and design. I hope it's not too difficult to use! Almost all of the site's features can be found by clicking on the menu button found in the upper left of the screen.
+	
+5. Briefly describe any pieces of the assignment that are not yet working correctly.
+	For one, there's no validation during account creation. There are limits on the inputs to prevent them from being incompatible with my database, but that's it. Empty accounts can be created. :(
+	
+	And the validation on the main search page geworks really well, but every now and then the validation messages pop up even after switching to a different page. 
+	
+	And occassionally I'll encounter search errors (the only time they happen) because Twitter will sometimes give me a non-English tweet that Google Cloud can't handle, which is a little frustrating since every API request I make to Twitter is specifically configured to only give me results in English. Most of the time it does just fine, but I guess Twitter's language recocognition is still in development.
+
+6. Provide evidence of your database design by dumping the SQL that describes your Heroku database to the file "output.sql" using the following command. Submit this SQL file in addition to the submission file for this assignment.
+
+  $ heroku run 'pg_dump $DATABASE_URL' > output.sql
+
+--------------------------------
+Project Self-assessment
+--------------------------------
+
+For the each of the following criteria, please state which category you feel best describes your work and give a 1-2 sentence justification for each. The categories are:
+
+A - Some attempt was made
+B - Developing, but significantly deficient
+C - Slightly deficient, but still mostly adequate
+D - Meets requirements
+E - Shows creativity and excels above and beyond requirements
+
+1. Professional look and feel
+	A - Some attempt was made
+	The site has clean and consistent design and styling across its pages.
+
+2. Accomplishes a meaningful/interesting task
+	E - Shows creativity and excels above and beyond requirements
+	The task accomplished by this app is meaningful and creative. It could be utilized for business intelligence, customer relations, and social research.
+
+3. Demonstrates good database design principles
+	A - Some attempt was made
+	I implemented the good design principles from what we have learned so far. The database uses foreign keys, has minimal repetition of data, and has logically separated tables.
+
+4. Demonstrates skill in database retrieval
+	E - Shows creativity and excels above and beyond requirements
+	Advanced/creative PostgreSQL queries were used to retrieve the data needed for the app's 'Statistics' and 'My Searches' features. 
+
+5. Demonstrates skill in database modification
+	A - Some attempt was made
+	The database is modified every time new hashtags are searched and tweets are parsed. The database is also modified when attaching search results to individual user accounts, as well as storing usernames and hashed passwords.
+
+6. Demonstrates mastery of client-side/server-side coordination and communication.
+	A - Some attempt was made
+	There is a lot of client-side/server side coordination and communication in this app. It heavily utilizes AJAX, jQuery, and JavaScript to communicate with PHP pages and display their results. 
+
+7. Overall Project
+	A - Some attempt was made
+	The site has a simple but powerful feature set. I can honestly say that I really poured my heart into this assignment. Sadly that that's what we get graded on! But in this case, I think the effort paid off in the form of a useful and creative site.
