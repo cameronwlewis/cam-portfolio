@@ -4371,7 +4371,7 @@ express-vue@^5.10.1:
     figlet "^1.2.3"
     vue-pronto "^1.11.0"
 
-express@^4.16.3, express@^4.17.1:
+express@^4.16.3, express@^4.17.1, express@latest:
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
   integrity sha512-mHJ9O79RqluphRrcw2X/GTh3k9tVv8YcoyY4Kkh4WDMUYKRZUq0h1o0w2rrrxBqM7VoeUVqgb27xlEMXTnYt4g==
@@ -7430,9 +7430,9 @@ npm-run-path@^2.0.0:
     path-key "^2.0.0"
 
 npm-user-validate@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/npm-user-validate/-/npm-user-validate-1.0.0.tgz#8ceca0f5cea04d4e93519ef72d0557a75122e951"
-  integrity sha1-jOyg9c6gTU6TUZ73LQVXp1Ei6VE=
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/npm-user-validate/-/npm-user-validate-1.0.1.tgz#31428fc5475fe8416023f178c0ab47935ad8c561"
+  integrity sha512-uQwcd/tY+h1jnEaze6cdX/LrhWhoBxfSknxentoqmIuStxUExxjWd3ULMLFPiFUrZKbOVMowH6Jq2FRWfmhcEw==
 
 npm@^6.5.0:
   version "6.10.1"
